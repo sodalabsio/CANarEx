@@ -1,7 +1,7 @@
 from pathlib import Path
 import pandas as pd
 
-from narratives import Narratives
+from .narrative import Narratives
 
 # creates a folder, does not overwrite if exists
 def create_folder(path):
