@@ -1,6 +1,6 @@
-from sentence_clustering import get_embeddings, get_best_model_K, get_best_model
-from cluster_config import cluster_config
-from canarex import read_jsonl_chunks, create_folder
+from .sentence_clustering import get_embeddings, get_best_model_K, get_best_model
+from .cluster_config import cluster_config
+from narratives import read_jsonl_chunks, create_folder
 
 
 import pandas as pd
@@ -24,7 +24,7 @@ def _get_top_n_narratives(topn, n):
         topn = topn.sort_values(['id', 'labels_2', 'dist_2'], ascending=True).groupby('id').head(1)
     else:
         # filter out duplicate narratives within the same document
-        topn = topn.sort_values(['id', 'labels_2', 'dist_2'], ascending=True).groupby(['id', 'narrative']).head(1)
+        topn = topn.sort_values(['id', 'labels_2', 'dist_2'], ascending=True).groupby(['id', 'sent']).head(1)
         # pick top N sentences from the chosen cluster
         topn = topn.sort_values(['id', 'labels_2', 'dist_2'], ascending=True).groupby('id').head(n)
 

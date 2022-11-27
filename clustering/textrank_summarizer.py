@@ -15,7 +15,7 @@ def create_narrative_summary(narratives, tr_summary_fpath, output):
     corpus_df_sum = pd.read_json(tr_summary_fpath, lines=True, orient='records')
     corpus_df_sum.loc[:, 'summary'] = corpus_df_sum['summary'].apply(lambda x: x.split('\n'))
     corpus_df_sum = corpus_df_sum.explode('summary')
-    corpus_df_sum = corpus_df_sum.rename(columns={'sent': 'text'})
+    corpus_df_sum = corpus_df_sum.rename(columns={'summary': 'text'})
 
     # Merge narratives with filtered statements
     fn = pd.merge(narratives, corpus_df_sum)

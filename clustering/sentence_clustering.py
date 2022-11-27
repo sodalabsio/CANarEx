@@ -7,12 +7,12 @@ from sentence_transformers import SentenceTransformer
 from sklearn.metrics import silhouette_score
 
 import faiss
-from cluster_config import cluster_config
+from .cluster_config import cluster_config
 
 
 def get_embeddings(sentences_list, path):
     sent_model = SentenceTransformer(cluster_config['s_name'],
-                                     device=cluster_config['s_dimension'])
+                                     device=cluster_config['device'])
 
     if path and os.path.isfile(path):
         print('Loading embeddings from file path ..')

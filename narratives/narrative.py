@@ -187,7 +187,6 @@ class Narratives:
         final = final.replace(np.nan, '')
         final = final[final.min_args >= 2]  # filter atleast 2 arguments
         final = final.drop(columns=['min_args'])
-        final = final.drop_duplicates()
 
         if self._save_all:
             with open('{}/processed_narratives.pk'.format(self._output_folder), 'wb') as f:

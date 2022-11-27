@@ -1,10 +1,10 @@
 import pandas as pd
 
-from canarex import read_jsonl_chunks, create_folder
-from cluster_config import cluster_config
+from narratives import read_jsonl_chunks, create_folder
+from.cluster_config import cluster_config
 
-from sentence_clustering import get_embeddings, get_best_model, write_clust_results
-from textrank_summarizer import create_textrank_summary, create_narrative_summary
+from .sentence_clustering import get_embeddings, get_best_model, write_clust_results
+from .textrank_summarizer import create_textrank_summary, create_narrative_summary
 
 
 
