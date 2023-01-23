@@ -7,6 +7,9 @@ Runs on Linux and macOS using Python 3.9.5
 - CaNarEx environment
 
    ````python
+    cd CaNarEx
+    python3 -m venv venv_canarex
+    source venv_canarex/bin/activate
     pip install -r requirements.txt
    ````
 
