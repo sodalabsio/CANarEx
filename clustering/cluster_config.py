@@ -19,4 +19,6 @@ cluster_config = dict(
 
     # textrank parameters
     tr_ratios=[0.05, 0.1, 0.2, 0.4]  # textrank ratio of sentences to select
+    tr_k= list(range(2, 10)) + list(range(10, 50, 5)) # number of clusters to run on selected N sentences after 
+    # textrank clustering
 )
