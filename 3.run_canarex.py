@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 import json
-
+from pathlib import Path
 from narratives import Narratives
 
 
@@ -67,7 +67,7 @@ def merge_with_input(config):
     narratives = pd.merge(narratives, df)
 
     output_narrative_path = '{}/{}_final_narratives.jsonl'.format(config['output_folder'],
-                                                             os.path.basename(config['data']))
+                                                             Path(config['data']).stem)
     narratives.to_json(output_narrative_path,
                        orient='records',
                        lines=True)
@@ -95,4 +95,13 @@ def run_hansard():
 
 if __name__ == '__main__':
     # run_factiva()  # data not shared
-    run_hansard()
+    # run_hansard()
+    
+    # sample data
+    config = {'data': 'data/hansard_sample/_first_nations_sample.jsonl',
+              'sentences_path': 'data/hansard_sample/coref_sentences.json',
+              'sentences': None,
+              'output_folder': 'data/hansard_sample'}
+    create_sentences_json(config)
+    extract_narratives(config)
+    merge_with_input(config)

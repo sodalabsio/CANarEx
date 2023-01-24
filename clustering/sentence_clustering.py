@@ -35,8 +35,8 @@ def fit_model(k, embeddings):
                                k=k,
                                niter=1000,
                                nredo=100,
-                               verbose=False,
-                               gpu=True,
+                               verbose=cluster_config['verbose'],
+                               gpu=cluster_config['use_gpu'],
                                seed=cluster_config['cluster_seed'])
     clust_model.train(embeddings.astype(np.float32))
 

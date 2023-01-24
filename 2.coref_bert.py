@@ -221,6 +221,7 @@ def tokenize_data_batches(input_file, output_file, batch_size=500, trunc=True):
                             data['subtoken_map'].append(subtoken_num)
 
                         data['sentences'][-1].append(token)
+                        # not required as single speaker (hansard)
                         if 'speaker' in text_record.keys():
                             data['speakers'][-1].append(text_record['speaker'])
                         else:
@@ -533,4 +534,9 @@ def run_co_reference_hansard():
     
 if __name__ == '__main__':
     # run_co_reference_factiva() # data not shared
-    run_co_reference_hansard()
+    # run_co_reference_hansard()
+    
+    # run sample
+    config = {'data': '../data/hansard_sample/first_nations_sample.jsonl',
+              'output': '../data/hansard_sample/'}
+    execute(config)

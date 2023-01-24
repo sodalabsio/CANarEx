@@ -1,7 +1,7 @@
 import pandas as pd
 
 from narratives import read_jsonl_chunks, create_folder
-from.cluster_config import cluster_config
+from .cluster_config import cluster_config
 
 from .sentence_clustering import get_embeddings, get_best_model, write_clust_results
 from .textrank_summarizer import create_textrank_summary, create_narrative_summary
@@ -52,7 +52,7 @@ def get_best_cluster():
 def textrank_clustering():
     for ratio in cluster_config['tr_ratios']:
         print('Running cluustering for ratio {} ...'.format(ratio))
-        narrative_tr_output = '{}/{}_tr_{}_final_narratives.jsonl'.format(cluster_config['output'],
+        narrative_tr_output = '{}/{}_tr_{}_final_narratives.jsonl'.format(output,
                                                                           subset,
                                                                           ratio)
 

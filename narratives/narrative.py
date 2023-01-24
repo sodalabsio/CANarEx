@@ -10,8 +10,10 @@ import re
 from string import ascii_letters
 
 from .srl_bert import SRL_Bert
+from .config import config_base
 
 import spacy
+spacy.prefer_gpu()
 spacy.load("en_core_web_trf")
 
 class Narratives:
@@ -20,16 +22,15 @@ class Narratives:
     Uses SRL
     """
     def __init__(self,
-                cuda_device=0,
                 micro_narratives=True,
                 output_folder='.'):
         self._run_split = micro_narratives
         self._selected_tags = ["ARG0", "ARG1", "ARG2", "ARG3", "ARG4",
                                'ARGM-TMP', 'ARGM-LOC',
                                "B-ARGM-MOD", 'B-ARGM-NEG', 'B-V']
-        self._srl = SRL_Bert('structured-prediction-srl-bert',
+        self._srl = SRL_Bert(config_base['srl'],
                              selected_tags = self._selected_tags,
-                             cuda_device=cuda_device,
+                             cuda_device=config_base['device'],
                              batch_size=100)
         self._merge = micro_narratives
         self._output_folder = output_folder
@@ -249,6 +250,7 @@ class Narratives:
         srl_result = self._srl(sentences_json, self._output_folder)
         srl_result = self._srl.extract_arguments(srl_result, self._output_folder)
 
+        print('Processing extracted SRL...')
         if self._merge:
             srl_result = self.create_micro_narratives(srl_result)
 
