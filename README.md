@@ -25,7 +25,7 @@ Runs on Linux and macOS using Python 3.9.5
      
 Using SpanBERT 
 
-- Download https://github.com/mandarjoshi90/coref and follow installation instructions from https://github.com/mandarjoshi90/coref ('spanbert_base') into `coref_env` environment
+- Download https://github.com/mandarjoshi90/coref and follow installation instructions from "Jonathan K. Kummerfeld's [notebook](https://colab.research.google.com/drive/1SlERO9Uc9541qv6yH26LJz5IM9j7YVra#scrollTo=H0xPknceFORt)" ('spanbert_base') into `coref_env` environment
 - Install following packages into `coref_env`: 
     ````python
         pip install tokenization
