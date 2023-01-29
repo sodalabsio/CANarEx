@@ -119,7 +119,7 @@ def cluster():
     embed_path = '{}/{}_embeddings_topN_all.pk'.format(output_folder, subset)
     doc_cluster_path = '{}/{}_kmeans2_doc_level.pk'.format(output_folder, subset)
     topn_cluster_path = '{}/{}_topn_range.pk'.format(output_folder, subset)
-    topn_cluster_result = partial('{output_folder}/{subset}_kmeans2_topn_{N}_final_k_{k}.pk'.format,
+    topn_cluster_result = partial('{output_folder}/{subset}_kmeans2_topn_{N}_final_k_{k}'.format,
                                  output_folder=output_folder, subset=subset)
 
     # create output directory

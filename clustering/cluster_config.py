@@ -13,7 +13,7 @@ cluster_config = dict(
     batch_size=64,
     
     # k-means faiss
-    use_gpu=False,
+    use_gpu=True,
     verbose=False,
 
     # topn clustering parameters

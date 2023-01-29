@@ -23,7 +23,7 @@ def _merge_labels_narratives(ratio, k):
     tr = pd.concat([tr, fn], axis=1)
 
     # Save
-    tr_cluster_result = '{}/{}_kmeans_tr_{}_final_{}.csv'.format(output, subset, ratio, k)
+    tr_cluster_result = '{}/{}_kmeans_tr_{}_final_{}'.format(output, subset, ratio, k)
     tr.to_csv('{}.csv'.format(tr_cluster_result),index=False)
     tr.to_pickle('{}.pk'.format(tr_cluster_result))
     return tr
